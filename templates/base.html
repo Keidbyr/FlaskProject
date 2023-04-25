@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% block styles %}
+
+    {% endblock %}
+    <style>
+.navbar-nav li > a {
+ color:#777;
+ transition:background-color .4s, color .3s
+}
+.navbar .navbar-nav li > a:hover,.navbar .navbar-nav li > a:focus {
+ background-color:#222;
+ color:#fff
+}
+
+    </style>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Мини форум</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_authenticated %}
+                    <li class="navbar-brand" href="/logout">loguot</li>
+                    {% else %}
+                    <li><a href="/login">Логин</a></li>
+                    <li><a href="/register">Регистрация</a></li>
+                    {% endif %}
+                    <li><a href="/createblok">Создать ветку</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+{% block content %}
+
+{% endblock %}
+</html>
